@@ -40,7 +40,7 @@ class ProjectController extends Controller
             'name' => 'required|max:255|string|unique:projects',
             'description' => 'nullable|string',
             'tecnologies' => 'exists:tecnologies,id',
-            'img' => 'required|file|max:2048',
+            'img' => 'required|file',
         ]);
         $data = $request->all();
         $data['img'] = $request->file('img')->store('public/images');

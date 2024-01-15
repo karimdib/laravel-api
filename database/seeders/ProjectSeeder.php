@@ -25,9 +25,8 @@ class ProjectSeeder extends Seeder
             $new_project = new Project();
             $new_project->name = $faker->colorName();
             $new_project->description = $faker->text();
-            $new_project->type_id = $faker->optional()->randomElement($ids);
+            $new_project->type_id = $faker->randomElement($ids);
             $new_project->save();
-            $new_project->tecnologies()->attach($faker->randomElements($tecnologiesIds, null));
         }
     }
 }

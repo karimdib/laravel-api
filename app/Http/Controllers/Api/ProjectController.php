@@ -10,11 +10,9 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::all();
-        $types = Project::with('tecnologies', 'types');
+        $projects = Project::with('type')->get();
         return response()->json([
             'projects' => $projects,
-            'types' => $types,
             'success' => true,
         ]);
     }
