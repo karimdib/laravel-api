@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Models\Tecnology;
 use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
 class ProjectSeeder extends Seeder
@@ -25,6 +26,7 @@ class ProjectSeeder extends Seeder
             $new_project = new Project();
             $new_project->name = $faker->colorName();
             $new_project->description = $faker->text();
+            $new_project->slug = Str::slug($new_project->name, '-');
             $new_project->type_id = $faker->randomElement($ids);
             $new_project->save();
         }
