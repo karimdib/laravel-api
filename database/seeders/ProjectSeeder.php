@@ -29,6 +29,7 @@ class ProjectSeeder extends Seeder
             $new_project->slug = Str::slug($new_project->name, '-');
             $new_project->type_id = $faker->randomElement($ids);
             $new_project->save();
+            $new_project->tecnologies()->attach($faker->randomElements($tecnologiesIds, null));
         }
     }
 }

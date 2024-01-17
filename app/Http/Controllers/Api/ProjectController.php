@@ -18,7 +18,7 @@ class ProjectController extends Controller
     }
     public function show(Project $project)
     {
-        $project->load('type');
+        $project->load('type', 'tecnologies');
         return response()->json([
             'project' => $project
         ]);
